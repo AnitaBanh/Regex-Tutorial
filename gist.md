@@ -4,16 +4,6 @@ Most of us use email or at least know what they are. Let's say I have a lengthy 
 This is where a regular expression, also known as regex, is extremely helpful.  A regex is a sequence of characters that specifies a search pattern in text. 
 A regex can also be used to validate an input.
 
-GIVEN a regex tutorial
-WHEN I open the tutorial
-THEN I see a descriptive title and introductory paragraph explaining the purpose of the tutorial, a summary describing the regex featured in the tutorial, a table of contents linking to different sections that break down each component of the regex and explain what it does, and a section about the author with a link to the author’s GitHub profile
-WHEN I click on the links in the table of contents
-THEN I am taken to the corresponding sections of the tutorial
-WHEN I read through each section of the tutorial
-THEN I find a detailed explanation of what a specific component of the regex does
-WHEN I reach the end of the tutorial
-THEN I find a section about the author and a link to the author’s GitHub profile
-
 ## Summary
 
 In this tutorial, I will explain the regex for matching an email address.
@@ -31,19 +21,20 @@ In this tutorial, I will explain the regex for matching an email address.
 
 ## Regex Components
 An email address is comprised of some number of characters followed by an @ symbol, followed by some characters, followed by a period (.), followed by some characters. Now, let's go into detail breaking down parts of the regex matching email.
-The forward-slash / marks the start and end of the regex.
+/^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/
 
+A forward-slash / marks the start and end of the regex. We see this as the first and last characters of the regex above.
 
 ### Anchors
 ^ and $ are anchors. 
-^ matches the starting position, meaning the beginning of a line or string. 
-$ matches the end of a line or string.
+^ matches the starting position, meaning the beginning of a line or string.   We see this as the second character of the email regex.
+$ matches the end of a line or string. We see this as the second to last character of the email regex.
 
 ### Quantifiers
 Curly brackets {} denote quantifiers.
 {2,6} in this email regex means two to six characters long. 
 
-The plus sign + indicates one or more occurances of the PRECEDING element. In the email regex, this shows up twice, once before the @ and once after. 
+The plus sign + indicates one or more occurances of the PRECEDING element. In the email regex, this shows up twice, once within the first set of parentheses () before the @ symbol and once within the second set of parentheses () after the @ symbol. 
 
 ### Character Classes
 /d matches any digit.
